@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bot Dashboard</title>
+</head>
+<body>
+
+<h1>ATP Trading Bot</h1>
+
+<table border="1">
+<tr>
+<th>Time</th>
+<th>Price</th>
+<th>RSI</th>
+<th>Signal</th>
+<th>Balance</th>
+</tr>
+
+{% for trade in trades %}
+<tr>
+<td>{{ trade[0] }}</td>
+<td>{{ trade[1] }}</td>
+<td>{{ trade[2] }}</td>
+<td>{{ trade[3] }}</td>
+<td>{{ trade[4] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
