@@ -1,0 +1,1 @@
+"""ARG trade bot package."""
