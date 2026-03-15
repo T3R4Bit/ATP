@@ -1,0 +1,168 @@
+2026-03-15 11:32:12,753 | ERROR    | engine.main                    | Engine error: No module named 'core.events'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 271, in run
+    await self.setup()
+  File "K:\ATP\Claude\main.py", line 74, in setup
+    from core.events import bus
+ModuleNotFoundError: No module named 'core.events'
+2026-03-15 11:32:12,755 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:32:25,304 | ERROR    | engine.main                    | Engine error: No module named 'core.events'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 271, in run
+    await self.setup()
+  File "K:\ATP\Claude\main.py", line 74, in setup
+    from core.events import bus
+ModuleNotFoundError: No module named 'core.events'
+2026-03-15 11:32:25,307 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:34:41,815 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:34:41,815 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:34:41,815 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:34:41,815 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:34:41,815 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:34:41,815 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:34:41,815 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:34:41,816 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:34:41,816 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:34:41,816 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:34:41,816 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:34:41,816 | INFO     | engine.main                    | Engine setup complete
+2026-03-15 11:34:41,817 | ERROR    | engine.main                    | Engine error: No module named 'api.main'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 280, in run
+    await self.run_api_server()
+  File "K:\ATP\Claude\main.py", line 251, in run_api_server
+    from api.main import create_app
+ModuleNotFoundError: No module named 'api.main'
+2026-03-15 11:34:41,819 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:34:41,819 | INFO     | core.events                    | EventBus stopped
+2026-03-15 11:34:41,819 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:34:41,819 | INFO     | engine.main                    | Final Portfolio Summary
+2026-03-15 11:34:41,819 | INFO     | engine.main                    |   Portfolio value:  $100000.00
+2026-03-15 11:34:41,819 | INFO     | engine.main                    |   Realized PnL:     $0.00
+2026-03-15 11:34:41,819 | INFO     | engine.main                    |   Total trades:     0
+2026-03-15 11:34:41,819 | INFO     | engine.main                    |   Win rate:         0.0%
+2026-03-15 11:34:41,819 | INFO     | engine.main                    |   Max drawdown:     0.0%
+2026-03-15 11:34:41,819 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:00,321 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:37:00,322 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:37:00,322 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:37:00,322 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:37:00,322 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:37:00,322 | INFO     | engine.main                    | Engine setup complete
+2026-03-15 11:37:00,323 | ERROR    | engine.main                    | Engine error: No module named 'api.main'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 280, in run
+    await self.run_api_server()
+  File "K:\ATP\Claude\main.py", line 251, in run_api_server
+    from api.main import create_app
+ModuleNotFoundError: No module named 'api.main'
+2026-03-15 11:37:00,325 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:37:00,325 | INFO     | core.events                    | EventBus stopped
+2026-03-15 11:37:00,325 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:00,325 | INFO     | engine.main                    | Final Portfolio Summary
+2026-03-15 11:37:00,325 | INFO     | engine.main                    |   Portfolio value:  $100000.00
+2026-03-15 11:37:00,325 | INFO     | engine.main                    |   Realized PnL:     $0.00
+2026-03-15 11:37:00,325 | INFO     | engine.main                    |   Total trades:     0
+2026-03-15 11:37:00,325 | INFO     | engine.main                    |   Win rate:         0.0%
+2026-03-15 11:37:00,325 | INFO     | engine.main                    |   Max drawdown:     0.0%
+2026-03-15 11:37:00,325 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:50,631 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:50,631 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:37:50,631 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:37:50,631 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:37:50,631 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:37:50,631 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:37:50,631 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:50,632 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:37:50,632 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:37:50,632 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:37:50,632 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:37:50,632 | INFO     | engine.main                    | Engine setup complete
+2026-03-15 11:37:50,632 | ERROR    | engine.main                    | Engine error: No module named 'api.main'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 280, in run
+    await self.run_api_server()
+  File "K:\ATP\Claude\main.py", line 251, in run_api_server
+    from api.main import create_app
+ModuleNotFoundError: No module named 'api.main'
+2026-03-15 11:37:50,634 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:37:50,634 | INFO     | core.events                    | EventBus stopped
+2026-03-15 11:37:50,635 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:50,635 | INFO     | engine.main                    | Final Portfolio Summary
+2026-03-15 11:37:50,635 | INFO     | engine.main                    |   Portfolio value:  $100000.00
+2026-03-15 11:37:50,635 | INFO     | engine.main                    |   Realized PnL:     $0.00
+2026-03-15 11:37:50,635 | INFO     | engine.main                    |   Total trades:     0
+2026-03-15 11:37:50,635 | INFO     | engine.main                    |   Win rate:         0.0%
+2026-03-15 11:37:50,635 | INFO     | engine.main                    |   Max drawdown:     0.0%
+2026-03-15 11:37:50,635 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:53,790 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:53,790 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:37:53,790 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:37:53,790 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:37:53,790 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:37:53,790 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:37:53,790 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:53,790 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:37:53,791 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:37:53,791 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:37:53,791 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:37:53,791 | INFO     | engine.main                    | Engine setup complete
+2026-03-15 11:37:53,791 | ERROR    | engine.main                    | Engine error: No module named 'api.main'
+Traceback (most recent call last):
+  File "K:\ATP\Claude\main.py", line 320, in main
+    await engine.run()
+  File "K:\ATP\Claude\main.py", line 280, in run
+    await self.run_api_server()
+  File "K:\ATP\Claude\main.py", line 251, in run_api_server
+    from api.main import create_app
+ModuleNotFoundError: No module named 'api.main'
+2026-03-15 11:37:53,793 | INFO     | engine.main                    | Shutting down engine...
+2026-03-15 11:37:53,793 | INFO     | core.events                    | EventBus stopped
+2026-03-15 11:37:53,793 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:37:53,793 | INFO     | engine.main                    | Final Portfolio Summary
+2026-03-15 11:37:53,793 | INFO     | engine.main                    |   Portfolio value:  $100000.00
+2026-03-15 11:37:53,793 | INFO     | engine.main                    |   Realized PnL:     $0.00
+2026-03-15 11:37:53,793 | INFO     | engine.main                    |   Total trades:     0
+2026-03-15 11:37:53,793 | INFO     | engine.main                    |   Win rate:         0.0%
+2026-03-15 11:37:53,793 | INFO     | engine.main                    |   Max drawdown:     0.0%
+2026-03-15 11:37:53,793 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:38:09,918 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:38:09,918 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:38:09,918 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:38:09,918 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:38:09,918 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:38:09,918 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:38:09,918 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:38:09,919 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:38:09,919 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:38:09,919 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:38:09,919 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:38:09,919 | INFO     | engine.main                    | Engine setup complete
+2026-03-15 11:40:58,571 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:40:58,571 | INFO     | engine.main                    | Trading Engine initializing
+2026-03-15 11:40:58,571 | INFO     | engine.main                    |   Mode:      api
+2026-03-15 11:40:58,571 | INFO     | engine.main                    |   Symbols:   ['BTCUSDT', 'ETHUSDT']
+2026-03-15 11:40:58,571 | INFO     | engine.main                    |   Timeframe: 5m
+2026-03-15 11:40:58,571 | INFO     | engine.main                    |   Capital:   $100,000.00
+2026-03-15 11:40:58,571 | INFO     | engine.main                    | ============================================================
+2026-03-15 11:40:58,572 | INFO     | engine.main                    | Added strategy: rsi_reversal_btcusdt (RSIReversalStrategy)
+2026-03-15 11:40:58,572 | INFO     | engine.main                    | Added strategy: ema_cross_btcusdt (EMACrossoverStrategy)
+2026-03-15 11:40:58,572 | INFO     | engine.main                    | Added strategy: rsi_reversal_ethusdt (RSIReversalStrategy)
+2026-03-15 11:40:58,572 | INFO     | engine.main                    | Added strategy: ema_cross_ethusdt (EMACrossoverStrategy)
+2026-03-15 11:40:58,572 | INFO     | engine.main                    | Engine setup complete

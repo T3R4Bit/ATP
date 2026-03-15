@@ -1,0 +1,84 @@
+# docker/docker-compose.yml
+version: "3.9"
+
+services:
+  engine:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: python main.py --mode paper --symbols BTCUSDT ETHUSDT --timeframe 5m
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://trader:password@postgres:5432/trading_engine
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: trader
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: trading_engine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trader"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  dashboard:
+    build:
+      context: ../dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000/ws/live
+    depends_on:
+      - engine
+
+volumes:
+  pgdata:
+
+---
+# docker/Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "main.py", "--mode", "paper"]
