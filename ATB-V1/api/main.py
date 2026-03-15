@@ -88,7 +88,7 @@ class ConnectionManager:
 ws_manager = ConnectionManager()
 
 
-def create_app(portfolio=None, broker=None, strategies=None, feed=None) -> FastAPI:
+def create_app(portfolio=None, broker=None, strategies=None, feed=None, ai_strategies=None) -> FastAPI:
     """
     App factory. Routes are defined INSIDE this function so they register
     on the returned app instance, not a stale module-level one.
@@ -99,6 +99,7 @@ def create_app(portfolio=None, broker=None, strategies=None, feed=None) -> FastA
         "broker": broker,
         "strategies": strategies,
         "feed": feed,
+        "ai_strategies": ai_strategies or [],
     }
 
     @asynccontextmanager
@@ -294,5 +295,57 @@ def create_app(portfolio=None, broker=None, strategies=None, feed=None) -> FastA
             pass
         finally:
             ws_manager.disconnect(websocket)
+
+    # -----------------------------------------------------------------------
+    # AI routes
+    # -----------------------------------------------------------------------
+
+    @app.get("/ai/predictions")
+    async def get_ai_predictions():
+        ai = _state.get("ai_strategies") or []
+        return {
+            s.symbol: s.get_last_prediction()
+            for s in ai
+            if s.get_last_prediction() is not None
+        }
+
+    @app.get("/ai/training-history")
+    async def get_training_history():
+        import csv
+        from pathlib import Path
+        result = {}
+        for sym in ["BTCUSDT", "ETHUSDT"]:
+            path = Path("ai/models") / f"{sym}_training_history.csv"
+            if path.exists():
+                rows = []
+                with open(path) as f:
+                    for row in csv.DictReader(f):
+                        rows.append({
+                            "iteration": int(row["iteration"]),
+                            "val_accuracy": float(row["val_accuracy"]),
+                            "best_accuracy": float(row["best_accuracy"]),
+                            "accepted": row["accepted"] == "True",
+                        })
+                result[sym] = rows[-100:]
+        return result
+
+    @app.get("/ai/model-status")
+    async def get_model_status():
+        import pickle
+        from pathlib import Path
+        result = {}
+        for sym in ["BTCUSDT", "ETHUSDT"]:
+            path = Path("ai/models") / f"{sym}_1m_predictor.pkl"
+            if path.exists():
+                with open(path, "rb") as f:
+                    data = pickle.load(f)
+                result[sym] = {
+                    "trained_at": str(data.get("trained_at", "unknown")),
+                    "test_accuracy": f"{data.get('test_accuracy', 0):.1%}",
+                    "n_features": len(data.get("feature_names", [])),
+                    "iteration": data.get("iteration", 0),
+                    "top_features": list(data.get("feature_importance", {}).keys())[:5],
+                }
+        return result
 
     return app
